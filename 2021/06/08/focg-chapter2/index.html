@@ -20,14 +20,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;lcp29.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="这一章打了很多基础的数学铺垫，还是只把感兴趣的记下来吧。 $\mathrm{atan2}(y,x)$：和普通的反正切类似，但是因为输入的是2D坐标，所以输出范围变成了$(-\pi,\pi]$。  平面三角形的一些理论表示方法要表示一个三角形，最trivial的方法是存储它的三个顶点坐标$\mathbf a$、$\mathbf b$和$\mathbf c$。在平面中，我们可以用叉乘的$z$坐标计算三">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fundamentals Of Computer Graphics 第二章 数学基础">
 <meta property="og:url" content="https://lcp29.github.io/2021/06/08/focg-chapter2/index.html">
 <meta property="og:site_name" content="GraphZone">
+<meta property="og:description" content="这一章打了很多基础的数学铺垫，还是只把感兴趣的记下来吧。 $\mathrm{atan2}(y,x)$：和普通的反正切类似，但是因为输入的是2D坐标，所以输出范围变成了$(-\pi,\pi]$。  平面三角形的一些理论表示方法要表示一个三角形，最trivial的方法是存储它的三个顶点坐标$\mathbf a$、$\mathbf b$和$\mathbf c$。在平面中，我们可以用叉乘的$z$坐标计算三">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lcp29.github.io/2021/06/08/focg-chapter2/atan2.png">
+<meta property="og:image" content="https://lcp29.github.io/2021/06/08/focg-chapter2/interpolation.png">
+<meta property="og:image" content="https://lcp29.github.io/2021/06/08/focg-chapter2/barycentric-coord.png">
+<meta property="og:image" content="https://lcp29.github.io/2021/06/08/focg-chapter2/barcentric-area.jpg">
 <meta property="article:published_time" content="2021-06-08T14:20:44.000Z">
-<meta property="article:modified_time" content="2021-06-08T15:00:09.240Z">
+<meta property="article:modified_time" content="2021-06-08T15:05:34.570Z">
 <meta property="article:author" content="lcp29">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -107,7 +112,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -120,6 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">平面三角形的一些理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">1.2.</span> <span class="nav-text">重心坐标系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%8B%E4%BD%93%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">2.</span> <span class="nav-text">立体三角形</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -133,7 +139,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -215,7 +221,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-06-08 22:20:44 / 修改时间：23:00:09" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:44+08:00">2021-06-08</time>
+      <time title="创建时间：2021-06-08 22:20:44 / 修改时间：23:05:34" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:44+08:00">2021-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,7 +243,61 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <img src="/2021/06/08/focg-chapter2/atan2.png" class="" width="300" height="200" title="atan2">
+        <p>这一章打了很多基础的数学铺垫，还是只把感兴趣的记下来吧。</p>
+<p>$\mathrm{atan2}(y,x)$：和普通的反正切类似，但是因为输入的是2D坐标，所以输出范围变成了$(-\pi,\pi]$。</p>
+<img src="/2021/06/08/focg-chapter2/atan2.png" class="" width="398" height="281" title="atan2">
+<h3 id="平面三角形的一些理论"><a href="#平面三角形的一些理论" class="headerlink" title="平面三角形的一些理论"></a>平面三角形的一些理论</h3><h4 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h4><p>要表示一个三角形，最trivial的方法是存储它的三个顶点坐标$\mathbf a$、$\mathbf b$和$\mathbf c$。在平面中，我们可以用叉乘的$z$坐标计算三角形的面积</p>
+<script type="math/tex; mode=display">
+S=\frac{1}{2}\left|\begin{matrix}x_b-x_a&y_b-y_a\\x_c-x_a&y_c-y_a\end{matrix}\right|,</script><p>当$\mathbf a$、$\mathbf b$和$\mathbf c$代表的顶点按逆时针顺序排序时，$S$为正，顺时针则为负。</p>
+<p>一般来说，<u>几何体的信息是保存到三角形的顶点里的，而在渲染三角形内部时我们使用插值方法获取数据</u>。</p>
+<img src="/2021/06/08/focg-chapter2/interpolation.png" class="" width="411" height="367" title="interpolation">
+<p>为了在三角形中方便地进行插值，我们以两边为轴，其相交的顶点为原点建立<strong>重心坐标系</strong>。</p>
+<h4 id="重心坐标系"><a href="#重心坐标系" class="headerlink" title="重心坐标系"></a>重心坐标系</h4><p>在三角形$\Delta ABC$中，以$A$为原点，$\vec{AB}$、$\vec{AC}$为基向量建成的坐标系称作<strong>重心坐标系</strong>。</p>
+<img src="/2021/06/08/focg-chapter2/barycentric-coord.png" class="" width="419" height="326" title="barycentric-coord">
+<p>设点在坐标系中的坐标是$(\beta,\gamma)$，那么它的位置矢量$\mathbf p=\mathbf a+\beta(\mathbf b-\mathbf a)+\gamma(\mathbf c-\mathbf a)$，或者记为$\mathbf p=(1-\beta-\gamma)\mathbf a+\beta b+\gamma\mathbf c$，通常我们会令$\alpha=1-\beta-\gamma$采用对，从而得到对称记法</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\mathbf p=\alpha\mathbf a+\beta\mathbf b+\gamma\mathbf c.
+\end{equation}</script><p>当且仅当$0&lt;\alpha,\beta,\gamma&lt;1$时，点在三角形内部。</p>
+<p>设$\mathbf a=(x_a,y_a)$，$\mathbf b=(x_b,y_b)$，$\mathbf c=(x_c,y_c)$，$\mathbf p=(x_p,y_p)$，则以上$\mathbf p$的表达式可以记为</p>
+<script type="math/tex; mode=display">
+\left(
+\begin{matrix}
+x_b-x_a&x_c-x_a\\
+y_b-y_a&y_c-y_a
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+\beta\\\gamma
+\end{matrix}
+\right)=
+\left(
+\begin{matrix}
+x_p-x_a\\
+y_p-y_a
+\end{matrix}
+\right)</script><p>通过这个方程可以解出$\beta$和$\gamma$。要求$\beta$和$\gamma$，有另一种更直观的方法，如果我们取直线$AC$的方程$f_{AC}(x,y)=0$，将点的坐标带入左侧的函数后，得到的数值与点到直线的距离成正比，直线两侧的点代入函数后得到的值符号相反。这样我们就有如下的式子：</p>
+<script type="math/tex; mode=display">
+\beta=\frac{f_{AC}(x_p,y_p)}{f_{AC}(x_b,y_b)}=\frac{x_p(y_c-y_a)-y_p(x_c-x_a)+y_ax_c-x_ay_c}{x_b(y_c-y_a)-y_b(x_c-x_a)+y_ax_c-x_ay_c},\\
+\gamma=\frac{f_{AB}(x_p,y_p)}{f_{AB}(x_c,y_c)}=\frac{x_p(y_c-y_a)-y_p(x_c-x_a)+y_ax_b-x_ay_b}{x_c(y_b-y_a)-y_c(x_b-x_a)+y_ax_c-x_ay_c}.</script><p>求出$\beta$和$\gamma$后，我们就可以方便地在三角形内进行插值。从上面的讨论可以发现，$\alpha$、$\beta$、$\gamma$分别表示$P$点到$A$、$B$、$C$的接近程度，且$\alpha+\beta+\gamma=1$。对于某个依附于顶点的量$m$，我们可以用下式表示这个量在三角形内的插值结果：</p>
+<script type="math/tex; mode=display">
+m=\alpha m_a+\beta m_b+\gamma m_c.</script><p>重心坐标的值还有一个意义，具体见下图。</p>
+<img src="/2021/06/08/focg-chapter2/barcentric-area.jpg" class="" width="542" height="575" title="barcentric-area">
+<h3 id="立体三角形"><a href="#立体三角形" class="headerlink" title="立体三角形"></a>立体三角形</h3><p>重心坐标可以被几乎无感地扩展到立体情况。仍延续上节对$\mathbf a$、$\mathbf b$、$\mathbf c$的定义，三角形的面积</p>
+<script type="math/tex; mode=display">
+S=\frac{1}{2}\left\|(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a)\right\|.</script><p>注意这里是不分正负的。三角形的法向量也很容易求出来：</p>
+<script type="math/tex; mode=display">
+\mathbf n=(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a),</script><p>其定向由$\vec{AB}$、$\vec{AC}$由右手定则确定。</p>
+<p>参考重心坐标关于三角形面积的意义，我们可以得到立体三角形重心坐标的计算方法：</p>
+<script type="math/tex; mode=display">
+\alpha=\frac{\mathbf n\cdot\mathbf n_a}{\left\|\mathbf n\right\|^2},\\
+\beta=\frac{\mathbf n\cdot\mathbf n_b}{\left\|\mathbf n\right\|^2},\\
+\gamma=\frac{\mathbf n\cdot\mathbf n_c}{\left\|\mathbf n\right\|^2}.</script><p>其中</p>
+<script type="math/tex; mode=display">
+\mathbf n_a=(\mathbf c-\mathbf b)\times(\mathbf p-\mathbf b),\\
+\mathbf n_b=(\mathbf p-\mathbf a)\times(\mathbf c-\mathbf a),\\
+\mathbf n_c=(\mathbf b-\mathbf a)\times(\mathbf p-\mathbf a).</script><p>这三个矢量的定义不是唯一的，满足定向即可。</p>
 
     </div>
 
@@ -259,6 +319,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/06/08/inf-series/" rel="next" title="无穷级数考前预习">
+                  无穷级数考前预习 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
