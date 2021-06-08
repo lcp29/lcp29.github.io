@@ -211,7 +211,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-06-08 23:05:53 / 修改时间：23:06:54" itemprop="dateCreated datePublished" datetime="2021-06-08T23:05:53+08:00">2021-06-08</time>
+      <time title="创建时间：2021-06-08 23:05:53 / 修改时间：23:09:40" itemprop="dateCreated datePublished" datetime="2021-06-08T23:05:53+08:00">2021-06-08</time>
     </span>
 
   
@@ -229,62 +229,14 @@
 <h3 id="定义和一些性质"><a href="#定义和一些性质" class="headerlink" title="定义和一些性质"></a>定义和一些性质</h3><p>给出一个序列$\{u_n\}$，$\sum_{k=1}^{\infty}u_k$就是一个无穷级数。其中$u_n$称作级数的<strong>一般项</strong>，这个序列的前$n$项和$s_n=\sum_{k=1}^nu_k$称作级数的<strong>部分和</strong>。而一个无穷级数有意义的话，它的部分和就一定收敛，即$\lim_{i\to\infty}s_i=s$，此时我们称这个无穷级数收敛，$s$为级数的<strong>和</strong>，否则称这个无穷级数发散，反过来也一样。</p>
 <p>有一些特殊的级数，比如说$\sum_{i=1}^{\infty}aq^i(a\neq0)$，称作几何级数或等比级数，$q$叫做级数的公比。用求部分和再讨论极限的方法就可以得到这个级数的敛散性和公比的关系，这也是判断级数敛散性的一种方法。</p>
 <p>和导数公式一样，如果我们先给出<strong><u>收敛</u></strong>级数的一些性质，就可以更方便的求其进行求值或证明。</p>
-<p><strong>性质1</strong> 如果收敛级数$\sum_{n=1}^{\infty}u_n=s$，那么$\sum_{n=1}^{\infty}ku_n$也收敛，其和为$ks$。</p>
-<p><strong>性质2</strong> 如果级数$\sum_{n=1}^{\infty}u_n$和$\sum_{n=1}^{\infty}v_n$分别收敛于和$s$和$\sigma$，那么级数$\sum_{n=1}^{\infty}\left(u_n\pm v_n\right)$也收敛，其和为$s\pm\sigma$。</p>
-<p>用两者部分和的关系容易证明以上两个性质。</p>
-<p><strong>性质3</strong> 在级数中去掉，加上或改变有限项，级数的收敛性不变。</p>
-<p><strong>性质4</strong> 如果级数$\sum_{n=1}^\infty u_n$收敛，那么对这级数的项任意加括号后所成的级数$(u_1+\cdots+u_{n_1})+(u_{n_1+1}+\cdots+u_{n_2})+\cdots+(u_{n_{k-1}+1}+\cdots+u_{n_k})+\cdots$仍收敛，其和不变。</p>
-<p>用收敛序列的性质容易证明性质3和性质4。但这些性质只对收敛级数成立，比如说有不收敛的无穷级数$1-1+1-1+\cdots$，对其加括号后变成$(1-1)+(1-1)+\cdots$，收敛于$0$。</p>
-<p><strong>性质5</strong>（级数收敛的必要条件） 如果级数$\sum_{n=1}^\infty u_n$收敛，那么有$\lim_{n\to\infty}u_n=0$。</p>
-<p>收敛序列的后项减前项的极限为$0$。</p>
-<h3 id="柯西审敛原理"><a href="#柯西审敛原理" class="headerlink" title="柯西审敛原理"></a>柯西审敛原理</h3><p>上一节中我们只介绍了直接求部分和判断敛散性或者用一般项的极限判断无穷级数是否发散的两种方法。显然这两种方法有很多弱点。我们直接把序列极限的收敛原理移植到无穷级数来</p>
-<p><strong>定理</strong>（柯西审敛原理） 级数$\sum_{n=1}^\infty u_n$收敛的充要条件为，对于任意给定的正数 $\varepsilon$，总存在正整数$N$，对于任意的$q\geq p&gt;N$有$\left|u_p+u_{p+1}+\cdots+u_q\right|&lt;\varepsilon$。</p>
-<p>证明过程中常常使用$\left|u_n+u_{n+1}+\cdots+u_{n+p}\right|$这样的形式，将和式保留前几项，再求得后面的周期和是负值，从而完成放缩。</p>
-<h3 id="正项级数及其审敛法"><a href="#正项级数及其审敛法" class="headerlink" title="正项级数及其审敛法"></a>正项级数及其审敛法</h3><p>一般项非负的级数叫做正项级数。正项级数的部分和是单调递增序列，其敛散性的判断比较容易。</p>
-<p><strong>定理1</strong> 正项级数收敛当且仅当其部分和序列有界。</p>
-<p><strong>定理2</strong>（比较审敛法） 设$\sum_{n=1}^\infty u_n$和$\sum_{n=1}^\infty v_n$都是正项级数，且$u_n\leq v_n,n=1,2,\cdots$，则若级数$\sum_{n=1}^\infty v_n$收敛，则$\sum_{n=1}^\infty u_n$也收敛，若$\sum_{n=1}^\infty u_n$发散，则$\sum_{n=1}^\infty v_n$也发散。</p>
-<p>比较审敛法的定理可以推广到存在正整数$N$，使得只有当$n&gt;N$时，$u_n$和$v_n$之间才满足大小关系，这个大小关系也可以加上任意的有限倍数，即$u_n\leq kv_n$或$u_n\geq kv_n$。</p>
-<p><strong>p-级数</strong> 级数$\sum_{n=1}^\infty \frac{1}{n^p}$称为p-级数。使用分项求和化为指数或者积分的方法可以证明，当$p\leq1$时，该级数发散，$p&gt;1$时，该级数收敛。这个级数常用在比较审敛法中。</p>
-<p><strong>定理3</strong>（比较审敛法的极限形式） 设$\sum_{n=1}^\infty u_n$和$\sum_{n=1}^\infty v_n$都是正项级数。</p>
-<p>（1）如果$\lim_{n\to\infty}\frac{u_n}{v_n}=l(0\leq l&lt;+\infty)$，且级数$\sum_{n=1}^\infty v_n$收敛，则级数$\sum_{n=1}^\infty u_n$收敛；</p>
-<p>（2）如果$\lim_{n\to\infty}\frac{u_n}{v_n}=l(0&lt;l\leq+\infty)$，且级数$\sum_{n=1}^\infty v_n$发散，则级数$\sum_{n=1}^\infty u_n$发散。</p>
-<p>经常取用等比级数和p-级数与无穷级数的一般项进行比较。</p>
-<p><strong>定理4</strong>（比值审敛法，达朗贝尔判别法） 设$\sum_{n=1}^\infty u_n$为正项级数，如果$\lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\rho$，则当$\rho&gt;1$时，无穷级数发散，当$\rho&lt;1$时，无穷级数收敛，当$\rho=1$时，级数的敛散性不确定（例：p-级数）。</p>
-<p>有阶乘什么的，尤其是到了幂级数的时候用起来比较方便。这个定理可以看作是和等比级数进行比较，如果为$1$的话就需要考虑高阶小量的影响，因此不确定是否收敛。</p>
-<p><strong>级数的余项</strong> 级数的第$k$项之后的和称作级数的余项，记作$r_k=\sum_{n=k+1}^\infty u_n$，可以用来进行误差的估计。</p>
-<p><strong>定理5</strong>（根值审敛法，柯西判别法）设$\sum_{n=1}^\infty u_n$为正项级数，有极限$\lim_{n\to\infty}\sqrt[n]{u_n}=\rho$，当$\rho&gt;1$时级数发散，当$\rho&lt;1$时级数收敛，$\rho=1$时无法判断。</p>
-<p>这个也是和指数作比较。</p>
-<p><strong>定理6</strong>（极限审敛法） 设$\sum_{n=1}^\infty u_n$为正项级数，$\lim_{n\to\infty}nu_n=l&gt;0$时级数发散，$\lim_{n\to\infty}n^pu_n=l(p&gt;1,0\leq l&lt;+\infty)$时级数收敛。</p>
-<p>和p-级数作比较。</p>
-<p>上面的达朗贝尔、柯西等审敛法都可以用比较审敛法的极限形式等价替换。</p>
-<h3 id="交错级数及其审敛法"><a href="#交错级数及其审敛法" class="headerlink" title="交错级数及其审敛法"></a>交错级数及其审敛法</h3><p>交错级数就是邻项异号的级数。存在方便的定理。</p>
-<p><strong>定理7</strong>（莱布尼兹定理） 如果交错级数$\sum_{n=1}^\infty(-1)^{n-1}u_n$满足$\{u_n\}$单调递减且极限为0，那么这个级数收敛，余项$r_n$满足$\left|r_n\right|\leq u_{n+1}$。</p>
-<p>用柯西审敛原理可以方便地证明。</p>
-<p>对于一般的级数，如果把每一项取绝对值后，级数收敛，则称这个级数<strong>绝对收敛</strong>，相应的，如果这个级数本身收敛，但是每项加绝对值后级数发散，那么称这个级数<strong>条件收敛</strong>。</p>
-<p><strong>定理8</strong> 绝对收敛级数必收敛。</p>
-<h3 id="绝对收敛级数的性质"><a href="#绝对收敛级数的性质" class="headerlink" title="绝对收敛级数的性质"></a>绝对收敛级数的性质</h3><p><strong>定理9</strong> 绝对收敛级数经改变项的位置后构成的级数也收敛，且与原级数有相同的和。</p>
-<p>级数之间相乘后，新的无穷和式之间的项需要合并。可以使用对角线法和正方形法。</p>
-<p>对角线法：记矩阵$A_{ij}=(u_iv_j)_{ij}$，无穷级数乘积$\left(\sum_{n=1}^\infty u_n\right)\left(\sum_{n=1}^\infty v_n\right)$可以表示成$\sum_{n=1}^\infty\sum_{k=1}^nu_{n-k+1}v_{k}$，也就是矩阵$A$从右上到左下的各对角线之和。得到的级数称作两个级数的<strong>柯西乘积</strong>。</p>
-<p>正方形法：和上述矩阵相同，只不过把求和范围变为在左上角的$n\times n$子方阵。</p>
-<p><strong>定理10</strong>（绝对收敛级数的乘法）绝对收敛级数的柯西乘积也是绝对收敛的，其和为两级数的和之积。</p>
-<p>取柯西乘积的前$n$项和，这前$n$项和一定小于$\left(\sum_{n=1}^nu_n\right)\left(\sum_{n=1}^nv_n\right)$，所以柯西乘积收敛，可以交换次序而变为正方形法的和式，而正方形法的和式$s_n$满足$s_k=\left(\sum_{k=1}^nu_k\right)\left(\sum_{k=1}^nv_k\right)$，取极限即有$s=\left(\sum_{n=1}^\infty u_n\right)\left(\sum_{n=1}^\infty v_n\right)$。</p>
-<h2 id="幂级数"><a href="#幂级数" class="headerlink" title="幂级数"></a>幂级数</h2><p>和常数项级数一样，函数项级数是函数列$\{u_n(x)\}$的无穷加和。给出一个$x_0$，若$\sum_{n=1}^\infty u_n(x_0)$存在，则称点$x=x_0$为收敛点，否则称为发散点。收敛点的集合称为收敛域，发散点的集合称为发散域。类比常数项级数，有和函数$s(x)$和余项$r_k(x)$。</p>
-<p><strong>幂级数</strong>：具有形式$\sum_{n=0}^\infty a_nx^n$的函数项级数，其中$a_n$称为幂级数的系数。</p>
-<p><strong>定理1</strong>（Abel定理） 如果级数$\sum_{n=0}^\infty a_nx^n$当$x=x_0$时收敛，那么适合不等式$|x|&lt;|x_0|$的一切$x$都使得这个幂级数绝对收敛，反之，若</p>
-<p>级数$\sum_{n=0}^\infty a_nx^n$当$x=x_0$时发散，那么适合不等式$|x|&gt;|x_0|$的一切$x$都使得这个幂级数发散。</p>
-<p>由收敛得对于任意的$n$，$a_nx_0^n$有界，因此对于任意的$x&lt;x_0$，$a_nx^n$也有界，无穷级数仍收敛。</p>
-<p>由Abel定理可以得到收敛半径的概念。对于任意的幂级数，一定存在确定的非负数$R$，使得这个幂级数在到原点距离为$R$的范围内绝对收敛，在到原点距离大于$R$的范围内发散，而距离刚好等于$R$时，收敛与发散不好判断。这个$R$通常叫做幂级数的<strong>收敛半径</strong>，开区间$(-R,R)$称作幂级数的收敛区间。</p>
-<p>对于收敛半径的求法有如下定理：</p>
-<p><strong>定理2</strong> 如果$\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho$，则幂级数$\sum_{n=0}^\infty a_nx^n$的收敛半径$R=\left\{\begin{matrix}\frac{1}{\rho},&amp;\rho\neq0,\+\infty,&amp;\rho=0,\\0,&amp;\rho=+\infty.\end{matrix}\right.$</p>
-<p>有些级数会缺少一些项，比如偶函数的泰勒级数没有奇次方项，此时不能应用上述定理，但是可以应用审敛法判断收敛半径。任意级数的比值审敛法比较方便。</p>
-<p><strong>幂级数的运算</strong>：幂级数可以直接逐项进行加法或减法，其收敛域取交集。幂级数的乘法使用柯西乘积，收敛域仍然取交集。幂级数的除法可由待定系数法求出。</p>
-<p>幂级数的和函数有一些性质：</p>
-<p><strong>性质1</strong> 幂级数$\sum_{n=0}^\infty a_nx^n$的和函数$s(x)$在其收敛域上连续。</p>
-<p><strong>性质2</strong> 幂级数$\sum_{n=0}^\infty a_nx^n$的和函数$s(x)$在其收敛域上可积，进行逐项积分有$\int_0^xs(t)\mathrm dt=\sum_{n=0}^\infty \frac{a_nx^{n+1}}{n+1}$。</p>
-<p><strong>性质3</strong> 幂级数$\sum_{n=0}^\infty a_nx^n$的和函数$s(x)$在其收敛域上任意阶可导，进行逐项求导有$\frac{\mathrm ds(x)}{\mathrm dx}=\sum_{x=1}^\infty na_nx^{n-1}$，其收敛半径与原幂级数相同。</p>
-<p>要熟练掌握一些常用函数的泰勒展开公式，通过代数变换与求导、积分可以求一些幂级数的和函数。</p>
-<p>（还没预习完）</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/08/inf-series/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -335,7 +287,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-06-08 22:20:44 / 修改时间：23:05:34" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:44+08:00">2021-06-08</time>
+      <time title="创建时间：2021-06-08 22:20:44 / 修改时间：23:09:31" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:44+08:00">2021-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,59 +312,15 @@
           <p>这一章打了很多基础的数学铺垫，还是只把感兴趣的记下来吧。</p>
 <p>$\mathrm{atan2}(y,x)$：和普通的反正切类似，但是因为输入的是2D坐标，所以输出范围变成了$(-\pi,\pi]$。</p>
 <img src="/2021/06/08/focg-chapter2/atan2.png" class="" width="398" height="281" title="atan2">
-<h3 id="平面三角形的一些理论"><a href="#平面三角形的一些理论" class="headerlink" title="平面三角形的一些理论"></a>平面三角形的一些理论</h3><h4 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h4><p>要表示一个三角形，最trivial的方法是存储它的三个顶点坐标$\mathbf a$、$\mathbf b$和$\mathbf c$。在平面中，我们可以用叉乘的$z$坐标计算三角形的面积</p>
-<script type="math/tex; mode=display">
-S=\frac{1}{2}\left|\begin{matrix}x_b-x_a&y_b-y_a\\x_c-x_a&y_c-y_a\end{matrix}\right|,</script><p>当$\mathbf a$、$\mathbf b$和$\mathbf c$代表的顶点按逆时针顺序排序时，$S$为正，顺时针则为负。</p>
-<p>一般来说，<u>几何体的信息是保存到三角形的顶点里的，而在渲染三角形内部时我们使用插值方法获取数据</u>。</p>
-<img src="/2021/06/08/focg-chapter2/interpolation.png" class="" width="411" height="367" title="interpolation">
-<p>为了在三角形中方便地进行插值，我们以两边为轴，其相交的顶点为原点建立<strong>重心坐标系</strong>。</p>
-<h4 id="重心坐标系"><a href="#重心坐标系" class="headerlink" title="重心坐标系"></a>重心坐标系</h4><p>在三角形$\Delta ABC$中，以$A$为原点，$\vec{AB}$、$\vec{AC}$为基向量建成的坐标系称作<strong>重心坐标系</strong>。</p>
-<img src="/2021/06/08/focg-chapter2/barycentric-coord.png" class="" width="419" height="326" title="barycentric-coord">
-<p>设点在坐标系中的坐标是$(\beta,\gamma)$，那么它的位置矢量$\mathbf p=\mathbf a+\beta(\mathbf b-\mathbf a)+\gamma(\mathbf c-\mathbf a)$，或者记为$\mathbf p=(1-\beta-\gamma)\mathbf a+\beta b+\gamma\mathbf c$，通常我们会令$\alpha=1-\beta-\gamma$采用对，从而得到对称记法</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\mathbf p=\alpha\mathbf a+\beta\mathbf b+\gamma\mathbf c.
-\end{equation}</script><p>当且仅当$0&lt;\alpha,\beta,\gamma&lt;1$时，点在三角形内部。</p>
-<p>设$\mathbf a=(x_a,y_a)$，$\mathbf b=(x_b,y_b)$，$\mathbf c=(x_c,y_c)$，$\mathbf p=(x_p,y_p)$，则以上$\mathbf p$的表达式可以记为</p>
-<script type="math/tex; mode=display">
-\left(
-\begin{matrix}
-x_b-x_a&x_c-x_a\\
-y_b-y_a&y_c-y_a
-\end{matrix}
-\right)
-\left(
-\begin{matrix}
-\beta\\\gamma
-\end{matrix}
-\right)=
-\left(
-\begin{matrix}
-x_p-x_a\\
-y_p-y_a
-\end{matrix}
-\right)</script><p>通过这个方程可以解出$\beta$和$\gamma$。要求$\beta$和$\gamma$，有另一种更直观的方法，如果我们取直线$AC$的方程$f_{AC}(x,y)=0$，将点的坐标带入左侧的函数后，得到的数值与点到直线的距离成正比，直线两侧的点代入函数后得到的值符号相反。这样我们就有如下的式子：</p>
-<script type="math/tex; mode=display">
-\beta=\frac{f_{AC}(x_p,y_p)}{f_{AC}(x_b,y_b)}=\frac{x_p(y_c-y_a)-y_p(x_c-x_a)+y_ax_c-x_ay_c}{x_b(y_c-y_a)-y_b(x_c-x_a)+y_ax_c-x_ay_c},\\
-\gamma=\frac{f_{AB}(x_p,y_p)}{f_{AB}(x_c,y_c)}=\frac{x_p(y_c-y_a)-y_p(x_c-x_a)+y_ax_b-x_ay_b}{x_c(y_b-y_a)-y_c(x_b-x_a)+y_ax_c-x_ay_c}.</script><p>求出$\beta$和$\gamma$后，我们就可以方便地在三角形内进行插值。从上面的讨论可以发现，$\alpha$、$\beta$、$\gamma$分别表示$P$点到$A$、$B$、$C$的接近程度，且$\alpha+\beta+\gamma=1$。对于某个依附于顶点的量$m$，我们可以用下式表示这个量在三角形内的插值结果：</p>
-<script type="math/tex; mode=display">
-m=\alpha m_a+\beta m_b+\gamma m_c.</script><p>重心坐标的值还有一个意义，具体见下图。</p>
-<img src="/2021/06/08/focg-chapter2/barcentric-area.jpg" class="" width="542" height="575" title="barcentric-area">
-<h3 id="立体三角形"><a href="#立体三角形" class="headerlink" title="立体三角形"></a>立体三角形</h3><p>重心坐标可以被几乎无感地扩展到立体情况。仍延续上节对$\mathbf a$、$\mathbf b$、$\mathbf c$的定义，三角形的面积</p>
-<script type="math/tex; mode=display">
-S=\frac{1}{2}\left\|(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a)\right\|.</script><p>注意这里是不分正负的。三角形的法向量也很容易求出来：</p>
-<script type="math/tex; mode=display">
-\mathbf n=(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a),</script><p>其定向由$\vec{AB}$、$\vec{AC}$由右手定则确定。</p>
-<p>参考重心坐标关于三角形面积的意义，我们可以得到立体三角形重心坐标的计算方法：</p>
-<script type="math/tex; mode=display">
-\alpha=\frac{\mathbf n\cdot\mathbf n_a}{\left\|\mathbf n\right\|^2},\\
-\beta=\frac{\mathbf n\cdot\mathbf n_b}{\left\|\mathbf n\right\|^2},\\
-\gamma=\frac{\mathbf n\cdot\mathbf n_c}{\left\|\mathbf n\right\|^2}.</script><p>其中</p>
-<script type="math/tex; mode=display">
-\mathbf n_a=(\mathbf c-\mathbf b)\times(\mathbf p-\mathbf b),\\
-\mathbf n_b=(\mathbf p-\mathbf a)\times(\mathbf c-\mathbf a),\\
-\mathbf n_c=(\mathbf b-\mathbf a)\times(\mathbf p-\mathbf a).</script><p>这三个矢量的定义不是唯一的，满足定向即可。</p>
-
+<h3 id="平面三角形的一些理论"><a href="#平面三角形的一些理论" class="headerlink" title="平面三角形的一些理论"></a>平面三角形的一些理论</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/08/focg-chapter2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -463,7 +371,7 @@ S=\frac{1}{2}\left\|(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a)\right\|.</s
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-06-08 22:20:31 / 修改时间：22:21:40" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:31+08:00">2021-06-08</time>
+      <time title="创建时间：2021-06-08 22:20:31 / 修改时间：23:09:21" itemprop="dateCreated datePublished" datetime="2021-06-08T22:20:31+08:00">2021-06-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -487,29 +395,15 @@ S=\frac{1}{2}\left\|(\mathbf b-\mathbf a)\times(\mathbf c-\mathbf a)\right\|.</s
     <div class="post-body" itemprop="articleBody">
           <h2 id="介绍性的文字"><a href="#介绍性的文字" class="headerlink" title="介绍性的文字"></a>介绍性的文字</h2><p>这章主要是对计算机图形学的一些子领域以及通用概念进行了简要的介绍。</p>
 <p>按照开篇的第一句话，所谓计算机图形学，大概就是用电脑来<strong>生成</strong>和<strong>操作</strong>图像的一门手艺，就算是模拟，也可以被理解成生成贴合现实的图像与动画（暴论）。</p>
-<p>说到计算机图形学，就不得不提一嘴一些著名的图形API，比如DirectX的图形部分、OpenGL、Vulkan什么的，但是这本书不会主要讲这些东西，只是在很靠后的章节提了一下OpenGL。毕竟这是一本讲原理的书。不过图形学的术语基本通用，所以迁移的话应该比较简单。</p>
-<h3 id="图形学的领域"><a href="#图形学的领域" class="headerlink" title="图形学的领域"></a>图形学的领域</h3><h4 id="核心领域"><a href="#核心领域" class="headerlink" title="核心领域"></a>核心领域</h4><p><strong>建模</strong>：研究形状和外观属性在计算机里的存储方式。一个例子是只把马克杯用顶点的方式存储，然后定义一些插值规则和反射模型来生成立体图形。</p>
-<p><strong>渲染</strong>：对3D模型进行着色，生成图像。</p>
-<p><strong>动画</strong>：动起来，但在时域中会产生新的问题。</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>这本书还提到了用户交互、VR、可视化、图像处理、3D扫描、计算摄影等话题。</p>
-<p><strong>用户交互</strong>：研究输入设备的接口、程序界面和对用户在视觉等方面的反馈。</p>
-<p><strong>图像处理</strong>：处理2D图像，在图形和CV领域都有应用。</p>
-<h3 id="主要应用"><a href="#主要应用" class="headerlink" title="主要应用"></a>主要应用</h3><p>游戏、动画、特效、电影、CAD/CAM、<strong>模拟</strong>、医学影像学、信息可视化等</p>
-<h3 id="图形API"><a href="#图形API" class="headerlink" title="图形API"></a>图形API</h3><p>有些方便的API是平台无关的，另一些是平台相关的。</p>
-<h3 id="图形管线"><a href="#图形管线" class="headerlink" title="图形管线"></a>图形管线</h3><p>拿来快速绘制3D图元的软件或硬件系统，对于共享顶点的三角形有特殊加速。图形管线把3D顶点数据投影到2D平面上，然后进行着色，还要考虑前后顺序，使用<strong>Z-缓冲</strong>解决图元的前后顺序问题。</p>
-<p>除了传统的三个几何坐标之外，我们还用<strong>齐次坐标</strong>去解决平移问题（见Transformation那章）。</p>
-<p>当模型在远处的时候，可以用<strong>LOD</strong>技术降低模型的分辨率，这样可以减少三角面元的数量，提升速度。</p>
-<h3 id="⭐数值上的问题"><a href="#⭐数值上的问题" class="headerlink" title="⭐数值上的问题"></a>⭐数值上的问题</h3><p>多亏了伟大的IEEE×，浮点数的标准被统一了。IEEE的浮点数标准里有$\infty$，$-\infty$和$\mathrm{NaN}$三个新的符号，其中$\mathrm{NaN}$用来表示像0/0这样的未定义操作的结果。这三种符号的相互运算都是符合直觉的，引入这些符号可以使一些公式没有平凡的无定义情况。</p>
-<h3 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h3><p>效率<strong>总是</strong>由权衡得来的，而且架构不同，优化方法也不一样。<strong>访存优化</strong>在优化中的地位比较高。</p>
-<p>书里给出了先写出最直白的代码，再找关键路径进行优化的方法论，还提醒我们要相信编译器，很多“优化”只是让代码看起来更厉害，所以最好善用profiling。</p>
-<h3 id="⭐图形学程序的设计和编码"><a href="#⭐图形学程序的设计和编码" class="headerlink" title="⭐图形学程序的设计和编码"></a>⭐图形学程序的设计和编码</h3><h4 id="类设计"><a href="#类设计" class="headerlink" title="类设计"></a>类设计</h4><p><strong>2/3/4维矢量</strong>、<strong>RGB颜色</strong>、<strong>变换矩阵</strong>、<strong>图像</strong>。有时将点与矢量分开，可以在提高可读性的同时把部分debug任务转交给编译器。</p>
-<p>也可以设计区间、正交基、标架等类，总之方便就好。</p>
-<h4 id="Float-or-Double"><a href="#Float-or-Double" class="headerlink" title="Float or Double?"></a>Float or Double?</h4><p>为了降低内存占用，提升访存一致性，可以用单精度数据，但是用双精度可以避免某些<u>数值上的问题（？）</u>，这里也需要做权衡，但在程序内最好保持一致。书中给出了一个对于几何操作使用双精度，颜色使用单精度，顶点数据等大数据存储时使用单精度，运算时使用双精度的方案，同时又提议在遇到问题不得不用双精度之前一直用单精度。</p>
-<h4 id="图形程序的调试"><a href="#图形程序的调试" class="headerlink" title="图形程序的调试"></a>图形程序的调试</h4><p>图形程序涉及大量重复操作，从调试器里定位很麻烦，解释数据也很麻烦。</p>
-<h5 id="一些调试策略"><a href="#一些调试策略" class="headerlink" title="一些调试策略"></a>一些调试策略</h5><h6 id="科学方法"><a href="#科学方法" class="headerlink" title="科学方法"></a>科学方法</h6><p>观察问题→提出假说→验证假说</p>
-<h6 id="用图像作为调试输出"><a href="#用图像作为调试输出" class="headerlink" title="用图像作为调试输出"></a>用图像作为调试输出</h6><p>直接把想观察的值输出成一幅图像。比如用颜色表示某点法向量的坐标、物体ID、绘制物体所用时间、超出范围的某些数值等。也可以把数据格式化然后输出，这样就可以放到Matlab之类的工具里了。</p>
-<h6 id="调试器"><a href="#调试器" class="headerlink" title="调试器"></a>调试器</h6><p>插入条件断点，比如在渲染某个像素时才中断。</p>
-
+<p>说到计算机图形学，就不得不提一嘴一些著名的图形API，比如DirectX的图形部分、OpenGL、Vulkan什么的，但是这本书不会主要讲这些东西，只是在很靠后的章节提了一下OpenGL。毕竟这是一本讲原理的书。不过图形学的术语基本通用，所以迁移的话应该比较简单。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/08/focg-chapter1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
