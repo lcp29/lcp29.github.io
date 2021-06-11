@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lcp29.github.io/2021/06/08/inf-series/inf-mul-sum.jpg">
 <meta property="article:published_time" content="2021-06-08T15:05:53.000Z">
-<meta property="article:modified_time" content="2021-06-11T02:14:43.140Z">
+<meta property="article:modified_time" content="2021-06-11T05:48:00.420Z">
 <meta property="article:author" content="lcp29">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-11 10:14:43" itemprop="dateModified" datetime="2021-06-11T10:14:43+08:00">2021-06-11</time>
+        <time title="修改时间：2021-06-11 13:48:00" itemprop="dateModified" datetime="2021-06-11T13:48:00+08:00">2021-06-11</time>
       </span>
 
   
@@ -290,7 +290,7 @@
 <p>由收敛得对于任意的$n$，$\left|a_nx_0^n\right|\leq M$有界，因此对于任意的$x&lt;x_0$，$\left|a_nx^n\right|=\left|a_nx_0^n\right|\cdot\left|\frac{x}{x_0}\right|^n\leq M\left|\frac{x}{x_0}\right|^n$，无穷级数仍收敛。</p>
 <p>由Abel定理可以得到收敛半径的概念。对于任意的幂级数，一定存在确定的非负数$R$，使得这个幂级数在到原点距离为$R$的范围内绝对收敛，在到原点距离大于$R$的范围内发散，而距离刚好等于$R$时，收敛与发散需要另外判断。这个$R$通常叫做幂级数的<strong>收敛半径</strong>，开区间$(-R,R)$称作幂级数的收敛区间。</p>
 <p>对于收敛半径的求法有如下定理：</p>
-<p><strong>定理2</strong> 如果$\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho$，则幂级数$\sum_{n=0}^\infty a_nx^n$的收敛半径$R=\left\{\begin{matrix}\frac{1}{\rho},&amp;\rho\neq0,\+\infty,&amp;\rho=0,\\0,&amp;\rho=+\infty.\end{matrix}\right.$</p>
+<p><strong>定理2</strong> 如果$\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho$，则幂级数$\sum_{n=0}^\infty a_nx^n$的收敛半径$R=\left\{\begin{matrix}\frac{1}{\rho},&amp;\rho\neq0,\\ +\infty,&amp;\rho=0,\\ 0,&amp;\rho=+\infty.\end{matrix}\right.$</p>
 <p>有些级数会缺少一些项，比如偶函数的泰勒级数没有奇次方项，此时不能应用上述定理，但是可以应用审敛法判断收敛半径。任意级数的比值审敛法比较方便。</p>
 <p><strong>幂级数的运算</strong>：幂级数可以直接逐项进行加法或减法，其收敛域取交集。幂级数的乘法使用柯西乘积，收敛域仍然取交集。幂级数的除法可由待定系数法求出。</p>
 <p>幂级数的和函数有一些性质：</p>
