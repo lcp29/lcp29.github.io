@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lcp29.github.io/2021/06/08/inf-series/inf-mul-sum.jpg">
 <meta property="article:published_time" content="2021-06-08T15:05:53.000Z">
-<meta property="article:modified_time" content="2021-06-11T05:51:43.630Z">
+<meta property="article:modified_time" content="2021-06-11T07:11:01.026Z">
 <meta property="article:author" content="lcp29">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-11 13:51:43" itemprop="dateModified" datetime="2021-06-11T13:51:43+08:00">2021-06-11</time>
+        <time title="修改时间：2021-06-11 15:11:01" itemprop="dateModified" datetime="2021-06-11T15:11:01+08:00">2021-06-11</time>
       </span>
 
   
@@ -337,21 +337,15 @@ f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n,|x|<r.</script><p>$r$是级数�
 </tr>
 <tr>
 <td>$\frac{1}{1-x}$</td>
-<td>$\sum_{n=0}^\infty x^n,\left</td>
-<td>x\right</td>
-<td>&lt;1$</td>
+<td>$\sum_{n=0}^\infty x^n,-1&lt;x&lt;1$</td>
 </tr>
 <tr>
 <td>$\frac{1}{1+x}$</td>
-<td>$\sum_{n=0}^\infty (-1)^nx^n,\left</td>
-<td>x\right</td>
-<td>&lt;1$</td>
+<td>$\sum_{n=0}^\infty (-1)^nx^n,-1&lt;x&lt;1$</td>
 </tr>
 <tr>
 <td>$\frac{1}{1+x^2}$</td>
-<td>$\sum_{n=0}^\infty(-1)^nx^{2n},\left</td>
-<td>x\right</td>
-<td>&lt;1$</td>
+<td>$\sum_{n=0}^\infty(-1)^nx^{2n},-1&lt;x&lt;1$</td>
 </tr>
 <tr>
 <td>$\ln(1+x)$</td>
@@ -359,9 +353,11 @@ f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n,|x|<r.</script><p>$r$是级数�
 </tr>
 <tr>
 <td>$\arctan x$</td>
-<td>$\sum_{n=0}^\infty\frac{(-1)^nx^{2n+1}}{2n+1},\left</td>
-<td>x\right</td>
-<td>\leq1$</td>
+<td>$\sum_{n=0}^\infty\frac{(-1)^nx^{2n+1}}{2n+1},-1\leq x\leq1$</td>
+</tr>
+<tr>
+<td>$(1+x)^m$</td>
+<td>$1+mx+\frac{m(m-1)}{2!}x^2+\cdots+\mathrm C_m^kx^k+\cdots,-1&lt;x&lt;1$</td>
 </tr>
 </tbody>
 </table>
