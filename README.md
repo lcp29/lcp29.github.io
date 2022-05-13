@@ -1,3 +1,3 @@
 # lcp29.github.io
 
-Transferred to blog.fomal.host.
+Transferred to <a href="https://blog.fomal.host">blog.fomal.host</a>.
